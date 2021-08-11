@@ -3,10 +3,16 @@ import Footer from '../Footer'
 import OMDbAPISearch from '../OMDbAPISearch';
 import '../OMDbAPI.css'
 import axios from 'axios';
+import MovieCards from '../MovieCards';
 
 function OMDbAPI() {
     const [title,enterTitle] = useState('');
-    let movieResponse = {};
+    const [movieResponse,setResponse] = useState({
+        loading: false,
+        error: "",
+        data: []
+    });
+    let response = null;
 
     const handleInputChange = (e) => enterTitle(e.target.value);
     const config = (apiKey, title) =>  ({
@@ -20,8 +26,13 @@ function OMDbAPI() {
         
     })
     const handleSubmit = (event) => {
-        axios(config("6aec39fa", title)).then((response)=>{movieResponse=response.data.Search;console.log(movieResponse);console.log(movieResponse.length);});
-        
+        setResponse({...movieResponse, loading: true})
+        axios(config("6aec39fa", title)).then((response)=>{
+            setResponse({...movieResponse, data: response.data.Search, loading: false});
+            response = response.Response;
+        }).catch(e => {
+            setResponse({...movieResponse, loading: false, error: "Error in fetching!"})
+        });
         event.preventDefault();
     }
     return (
@@ -30,7 +41,14 @@ function OMDbAPI() {
                 <h2>Consuming OMDbAPI</h2>
                 <OMDbAPISearch title={title} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
             </div>
-            <Footer/>
+            {movieResponse.loading && <p>Loading...</p>}
+{!!movieResponse.data?.length && <MovieCards movieData={movieResponse.data}/>
+}            
+{movieResponse.error && <p>{movieResponse.error}</p>}
+{movieResponse.data==undefined && <p>No results found</p>}
+
+
+<Footer/>
         </Fragment>
     )
 }
