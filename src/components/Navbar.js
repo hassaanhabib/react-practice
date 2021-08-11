@@ -50,12 +50,19 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className='nav-item'>
+                            <Link to='/OMDbAPI' className='nav-links' onClick={closeMobileMenu}>
+                                OMBDb API
+                            </Link>
+                        </li>
+                        <li className='nav-item'>
                             <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
                                 Sign up
                             </Link>
                         </li>
                     </ul>
+                    <Link to='/sign-up'>
                     {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+                    </Link>
                 </div>
             </nav>
         </>

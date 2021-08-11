@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {Button} from './Button';
 import './HeroSection.css';
 import '../App.css';
@@ -30,4 +30,4 @@ function HeroSection() {
     )
 }
 
-export default HeroSection
+export default HeroSection;
