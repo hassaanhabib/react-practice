@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 
-const Home = lazy(() => import('./components/pages/Home'));
-const Services = lazy(() => import('./components/pages/Services'));
-const Products = lazy(() => import('./components/pages/Products'));
-const SignUp = lazy(() => import('./components/pages/SignUp'));
-const OMDbAPI = lazy(() => import('./components/pages/OMDbAPI'));
+const Home = lazy(() => import('./pages/Home'));
+const Services = lazy(() => import('./pages/Services'));
+const Products = lazy(() => import('./pages/Products'));
+const SignUp = lazy(() => import('./pages/SignUp'));
+const OMDbAPI = lazy(() => import('./pages/OMDbAPI'));
+const Refs = lazy(()=>import('./pages/Refs'));
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path='/services' component={Services} />
             <Route path='/products' component={Products} />
             <Route path='/OMDbAPI' component={OMDbAPI} />
+            <Route path='/refs' component={Refs} />
             <Route path='/sign-up' component={SignUp} />
           </Switch>
         </Suspense>

@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react'
-import Footer from '../Footer'
-import OMDbAPISearch from '../OMDbAPISearch';
-import '../OMDbAPI.css'
+import Footer from '../components/Footer'
+import OMDbAPISearch from '../components/OMDbAPISearch';
+import '../components/OMDbAPI.css'
 import axios from 'axios';
-import MovieCards from '../MovieCards';
+import MovieCards from '../components/MovieCards';
 
 function OMDbAPI() {
     const [title, enterTitle] = useState('');
