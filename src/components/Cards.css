@@ -14,6 +14,7 @@
     max-width: 1120px;
     width: 90%;
     margin: 0 auto;
+
   }
   
   .cards__wrapper {
@@ -28,10 +29,9 @@
   .cards__item {
     display: flex;
     flex: 1;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
     border-radius: 10px;
-  }
-  
+  }  
   .cards__item__link {
     display: flex;
     flex-flow: column;

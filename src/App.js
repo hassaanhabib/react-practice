@@ -1,17 +1,20 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Home from './components/pages/Home';
-import Services from './components/pages/Services';
-import Products from './components/pages/Products';
-import SignUp from './components/pages/SignUp';
-import OMDbAPI from './components/pages/OMDbAPI';
+import { lazy, Suspense } from 'react';
+
+const Home = lazy(()=>import ('./components/pages/Home'));
+const Services = lazy(()=>import ('./components/pages/Services'));
+const Products = lazy(()=>import ('./components/pages/Products'));
+const SignUp = lazy(()=>import ('./components/pages/SignUp'));
+const OMDbAPI = lazy(()=>import ('./components/pages/OMDbAPI'));
 
 function App() {
 
   return (
     <>
       <Router>
+      <Suspense fallback={<h2>Loading...</h2>}>
        <Navbar/>
         <Switch>
           <Route path="/" exact component={Home}/>
@@ -20,6 +23,7 @@ function App() {
           <Route path='/OMDbAPI' component={OMDbAPI}/>
           <Route path='/sign-up' component={SignUp}/>
         </Switch>
+        </Suspense>
       </Router>
     </>
   );

@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 function CardItem(props) {
     return (
         <>
-          <li className="cards__item" >
-              <Link className="cards__item__link" to={props.path}>
+          <section className="cards__item" >
+              <Link className="cards__item__link">
                   <figure className="cards__item__pic-wrap" data-category={props.label}>
                     <img src={props.src} alt="Practicing React" className="cards__item__img"/>
                   </figure>
@@ -13,7 +13,7 @@ function CardItem(props) {
                       <h5 className="cards__item__text">{props.text}</h5>
                   </div>
               </Link>
-          </li>
+          </section>
         </>
     )
 }

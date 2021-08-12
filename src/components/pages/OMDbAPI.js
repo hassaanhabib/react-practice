@@ -12,7 +12,6 @@ function OMDbAPI() {
         error: "",
         data: []
     });
-    let response = null;
 
     const handleInputChange = (e) => enterTitle(e.target.value);
     const config = (apiKey, title) =>  ({
@@ -29,7 +28,6 @@ function OMDbAPI() {
         setResponse({...movieResponse, loading: true})
         axios(config("6aec39fa", title)).then((response)=>{
             setResponse({...movieResponse, data: response.data.Search, loading: false});
-            response = response.Response;
         }).catch(e => {
             setResponse({...movieResponse, loading: false, error: "Error in fetching!"})
         });

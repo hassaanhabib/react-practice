@@ -4,21 +4,22 @@ import CardItem from './CardItem'
 import './Cards.css';
 
 function MovieCards(props) {
-    const movieResponse = props.movieData;
+    const {movieData} = props;
     return (
         <div className="cards">
-            <h1>Results found: {props.movieData.length}</h1>
+            <h1>Results found: {movieData.length}</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
-                    <ul className="cards__items">
-                   {movieResponse.map(item =>   <CardItem 
+                    <div className="cards__items">
+                   {movieData.map(item =>   <CardItem 
+                            key={item.imdbID}
                             src={item.Poster}
                             text={item.Title}
                             label={item.Year}
                         />)}
                       
                         
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
