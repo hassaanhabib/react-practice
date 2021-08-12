@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const Home = lazy(() => import('./components/pages/Home'));
 const Services = lazy(() => import('./components/pages/Services'));
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <Router>
+      <ErrorBoundary>
         <Suspense fallback={<h2>Loading...</h2>}>
           <Navbar />
           <Switch>
@@ -24,6 +26,7 @@ function App() {
             <Route path='/sign-up' component={SignUp} />
           </Switch>
         </Suspense>
+        </ErrorBoundary>
       </Router>
     </>
   );
