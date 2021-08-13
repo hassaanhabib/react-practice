@@ -9,7 +9,8 @@
   .services,
   .products,
   .sign-up,
-  .Refs{
+  .Refs,
+  .Context{
     display: flex;
     height: 90vh;
     align-items: center;

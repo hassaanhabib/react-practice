@@ -1,17 +1,19 @@
-import React,{useState,forwardRef,useRef,useImperativeHandle} from 'react'
+import React, { useState, forwardRef, useRef, useImperativeHandle } from 'react'
 
-const MyRef = React.forwardRef((props,ref) => {
-    const [count,setCount] = useState(0);
+const MyRef = React.forwardRef((props, ref) => {
+    const [count, setCount] = useState(0);
 
     const incrementCount = () => {
-        setCount(count+1);
+        setCount(count + 1);
     }
-   useImperativeHandle(
+    useImperativeHandle(
         ref,
         () => {
-            return {incrementCount: ()=>{
-                incrementCount();
-            }}
+            return {
+                incrementCount: () => {
+                    incrementCount();
+                }
+            }
         }
     )
     return (
@@ -21,4 +23,3 @@ const MyRef = React.forwardRef((props,ref) => {
     )
 })
 export default MyRef
- 
