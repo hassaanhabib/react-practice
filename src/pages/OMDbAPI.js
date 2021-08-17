@@ -1,49 +1,40 @@
-import React, { Fragment, useState } from 'react'
-import Footer from '../components/Footer'
-import OMDbAPISearch from '../components/OMDbAPISearch';
-import '../components/OMDbAPI.css'
-import axios from 'axios';
+import React, { Fragment, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { searchMoviesWithKeyword } from '../actions/MoviesActions';
+import Footer from '../components/Footer';
 import MovieCards from '../components/MovieCards';
+import '../components/OMDbAPI.css';
+import OMDbAPISearch from '../components/OMDbAPISearch';
 
 function OMDbAPI() {
     const [title, enterTitle] = useState('');
-    const [movieResponse, setResponse] = useState({
-        loading: false,
-        error: "",
-        data: []
-    });
+    const dispatch = useDispatch();
+    const content = useSelector(state => state);
+    const { moviesData = {} } = content;
+    const {
+        loading,
+        error,
+        data
+    } = moviesData;
 
     const handleInputChange = (e) => enterTitle(e.target.value);
-    const config = (apiKey, title) => ({
-        method: 'GET',
-        url: `https://omdbapi.com?apiKey=${apiKey}&s=${title}`,
-        header: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:3000'
-        },
-        // data: {s: title, apikey: "6aec39fa"}
 
-    })
-    const handleSubmit = (event) => {
-        setResponse({ ...movieResponse, loading: true })
-        axios(config("6aec39fa", title)).then((response) => {
-            setResponse({ ...movieResponse, data: response.data.Search, loading: false });
-        }).catch(e => {
-            setResponse({ ...movieResponse, loading: false, error: "Error in fetching!" })
-        });
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        searchMoviesWithKeyword(title, dispatch);
     }
+
     return (
         <Fragment>
             <div className="OMDbAPI-Container">
                 <h2>Consuming OMDbAPI</h2>
                 <OMDbAPISearch title={title} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
             </div>
-            {movieResponse.loading && <p>Loading...</p>}
-            {!!movieResponse.data?.length && <MovieCards movieData={movieResponse.data} />
+            {loading && <p>Loading...</p>}
+            {!!data?.length && <MovieCards movieData={data} />
             }
-            {movieResponse.error && <p>{movieResponse.error}</p>}
-            {movieResponse.data == undefined && <p>No results found</p>}
+            {error && <p>{error}</p>}
+            {data == undefined && <p>No results found</p>}
 
 
             <Footer />
