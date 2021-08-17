@@ -1,7 +1,8 @@
+// @flow
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -15,7 +16,7 @@ const Context = lazy(() => import('./pages/Context'))
 function App() {
 
   return (
-    <>
+    <React.Fragment>
       <Router>
         <ErrorBoundary>
           <Suspense fallback={<h2>Loading...</h2>}>
@@ -32,8 +33,8 @@ function App() {
           </Suspense>
         </ErrorBoundary>
       </Router>
-    </>
-  );
+      </React.Fragment>
+      );
 }
 
 export default App;

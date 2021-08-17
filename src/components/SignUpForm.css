@@ -1,0 +1,216 @@
+.signUpForm {
+  margin: 50px auto;
+  width: 40%;
+}
+.signUpForm Button {
+  float: right;
+  margin-right: 10px;
+}
+.signUpForm h1 {
+  text-align: center;
+}
+.signUpForm .form-group {
+  padding: 10px;
+}
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="search"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+
+input[type="file"] {
+  display: block;
+}
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+output {
+  display: block;
+  padding-top: 11px;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #555555;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  height: 42px;
+  padding: 10px 20px;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+}
+.form-control::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+  color: #999;
+}
+.form-control::-webkit-input-placeholder {
+  color: #999;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.form-control[disabled],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+.form-group-lg .form-control {
+  height: 46px;
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 1.33333;
+  border-radius: 6px;
+}
+.form-group-lg select.form-control {
+  height: 46px;
+  line-height: 46px;
+}
+.form-group-lg textarea.form-control,
+.form-group-lg select[multiple].form-control {
+  height: auto;
+}
+.form-group-lg .form-control-static {
+  height: 46px;
+  min-height: 38px;
+  padding: 11px 20px;
+  font-size: 18px;
+  line-height: 1.33333;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group-sm .form-control {
+  height: 30px;
+  padding: 5px 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.form-group-sm select.form-control {
+  height: 30px;
+  line-height: 30px;
+}
+.form-group-sm textarea.form-control,
+.form-group-sm select[multiple].form-control {
+  height: auto;
+}
+.form-group-sm .form-control-static {
+  height: 30px;
+  min-height: 32px;
+  padding: 6px 20px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.radio,
+.checkbox {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.radio label,
+.checkbox label {
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 4px \9;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -5px;
+}
